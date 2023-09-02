@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Livre Manager</title>
+</head>
+<body>
+<div align="center">
+<h1>Livre List</h1>
+
+<a href="/newA">Create New Adherent</a>
+
+<br/><br/>
+<table border="1" cellpadding="10">
+<thead>
+<tr>
+<th>CIN</th> <th>Nom</th> <th>Prenom</th> <th>Tele</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="Adherent : ${listAdherent}">
+  <td th:text="${Adherent.cin}">CIN</td>
+  <td th:text="${Adherent.nom} + ${Adherent.prenom}">Nom Complet</td>
+  <td th:text="${Adherent.tele}">Numero Tele</td>
+   
+  <td>
+     <a th:href="@{'/editA/' + ${Adherent.cin}}">Edit</a>
+
+     <a th:href="@{'/deleteA/' + ${Adherent.cin}}">Delete</a>
+     
+  </td>
+
+</tr>
+</tbody>
+
+

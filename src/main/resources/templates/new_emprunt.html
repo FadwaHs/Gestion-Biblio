@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Emprunter</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Create New Emprunter</h1>
+        <br />
+        <form action="#" th:action="@{/saveE}" th:object="${emprunter}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Exemplaire No:</td>
+                    <td><input type="text" th:field="*{id.noexp}" /></td>
+                </tr>
+                <tr>
+                    <td>Adherent CIN:</td>
+                    <td><input type="text" th:field="*{id.cin}" /></td>
+                </tr>
+                <tr>
+                    <td>Date Debut:</td>
+                    <td><input type="text" th:field="*{id.datedebut}" /></td>
+                </tr>
+                <tr>
+                    <td>Date Fin:</td>
+                    <td><input type="text" th:field="*{datefin}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Save Emprunte</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit Livre</title>
+</head>
+<body>
+<div align="center">
+<h1>Edit Livre</h1>
+<br />
+<form action="#" th:action="@{/saveA}" th:object="${adherent}"
+method="post">
+<table border="0" cellpadding="10">
+<tr>
+<td>adherent CIN:</td>
+<td>
+<input type="text" th:field="*{cin}" readonly="readonly" />
+</td>
+</tr>
+<tr>
+<td>adherent Nom:</td>
+<td><input type="text" th:field="*{nom}" /></td>
+</tr>
+<tr>
+<td>adherent Prenom:</td>
+<td><input type="text" th:field="*{prenom}" /></td>
+</tr>
+<tr>
+<td>adherent Tele:</td>
+<td><input type="text" th:field="*{tele}" /></td>
+</tr>
+<tr>
+<td colspan="2"><button type="submit">UpdateA</button> </td>
+</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Livre Manager</title>
+</head>
+<body>
+<div align="center">
+<h1>Emprunte List</h1>
+
+<a href="/newE">Create New Emprunt</a>
+
+<br/><br/>
+
+<table border="1" cellpadding="10">
+<thead>
+<tr>
+<th>Numero Exemplaire</th><th>CIN</th> <th>Date Emprunt</th>  <th>Date de Retour</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="Emprunter : ${listEmprunter}">
+
+  <td th:text="${Emprunter.exemplaire.noexp}">Numero Exemplairet</td>
+  <td th:text="${Emprunter.adherent.cin}">CIN</td>
+  
+  <td th:text="${Emprunter.id.datedebut}">Date Emprunt</td>
+  <td th:text="${Emprunter.datefin}">Date de Retour</td>
+ 
+
+</tr>
+</tbody>
+
+</body>
+</html>
+
+
+

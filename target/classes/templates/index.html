@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Livre Manager</title>
+</head>
+<body>
+<div align="center">
+<h1>Livre List</h1>
+
+<a href="/new">Create New livre</a>
+
+<br/><br/>
+<table border="1" cellpadding="10">
+<thead>
+<tr>
+<th>ISBN</th> <th>Titre</th> <th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="livres : ${listLivre}">
+  <td th:text="${livres.isbn}">ISBN</td>
+  <td th:text="${livres.titre}">Titre</td>
+   <td th:text="${livres.category}">category</td>
+   
+  <td>
+     <a th:href="@{'/edit/' + ${livres.isbn}}">Edit</a>
+
+     <a th:href="@{'/delete/' + ${livres.isbn}}">Delete</a>
+     
+  </td>
+
+</tr>
+</tbody>
+
+
