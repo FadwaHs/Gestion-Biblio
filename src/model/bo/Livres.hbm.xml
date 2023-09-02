@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 mars 2023 10:31:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bo.Livres" table="LIVRES" schema="HR" optimistic-lock="version">
+        <id name="isbn" type="string">
+            <column name="ISBN" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="titre" type="string">
+            <column name="TITRE" length="25" />
+        </property>
+        <property name="category" type="string">
+            <column name="CATEGORY" length="25" />
+        </property>
+        <set name="exemplaires" table="EXEMPLAIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ISBN" length="25" />
+            </key>
+            <one-to-many class="model.bo.Exemplaire" />
+        </set>
+    </class>
+</hibernate-mapping>

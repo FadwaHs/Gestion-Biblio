@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 mars 2023 10:31:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bo.Emprunter" table="EMPRUNTER" schema="HR" optimistic-lock="version">
+        <composite-id name="id" class="model.bo.EmprunterId">
+            <key-property name="noexp" type="big_decimal">
+                <column name="NOEXP" precision="25" scale="0" />
+            </key-property>
+            <key-property name="cin" type="string">
+                <column name="CIN" length="25" />
+            </key-property>
+            <key-property name="datedebut" type="string">
+                <column name="DATEDEBUT" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="exemplaire" class="model.bo.Exemplaire" update="false" insert="false" fetch="select">
+            <column name="NOEXP" precision="25" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adherent" class="model.bo.Adherent" update="false" insert="false" fetch="select">
+            <column name="CIN" length="25" not-null="true" />
+        </many-to-one>
+        <property name="datefin" type="string">
+            <column name="DATEFIN" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

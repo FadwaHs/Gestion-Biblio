@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 mars 2023 10:31:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bo.Adherent" table="ADHERENT" schema="HR" optimistic-lock="version">
+        <id name="cin" type="string">
+            <column name="CIN" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="NOM" length="25" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="PRENOM" length="25" />
+        </property>
+        <property name="mdp" type="string">
+            <column name="MDP" length="25" />
+        </property>
+        <property name="tele" type="string">
+            <column name="TELE" length="25" />
+        </property>
+        <set name="emprunters" table="EMPRUNTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CIN" length="25" not-null="true" />
+            </key>
+            <one-to-many class="model.bo.Emprunter" />
+        </set>
+    </class>
+</hibernate-mapping>
